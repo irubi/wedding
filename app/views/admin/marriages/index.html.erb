@@ -1,0 +1,31 @@
+<h1>列表</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>序列号</th>
+      <th>新郎</th>
+      <th>新娘</th>
+      <th>结婚相册</th>
+      <th>日程安排</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collection.each do |m| %>
+      <tr>
+        <td><%=link_to m.number, admin_marriage_path(m) %></td>
+        <td><%= m.m_name %></td>
+        <td><%= m.f_name %></td>
+        <td><%=link_to m.photos.length, admin_marriage_photos_path(m) %></td>
+        <td><%= link_to m.schedules.length, admin_marriage_schedules_path(m) %></td>
+
+        <td>
+          <%= link_to '编辑', edit_admin_marriage_path(m), :class => 'btn btn-mini' %>
+          <%= link_to '删除', admin_marriage_path(m), :method => :delete, :confirm => '确定删除?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新建', new_admin_marriage_path, :class => 'btn btn-primary' %>

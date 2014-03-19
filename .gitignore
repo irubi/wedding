@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/
+config/database.yml
+.DS_Store
+public/system/
+test/
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+public/uploads/

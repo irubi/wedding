@@ -1,0 +1,61 @@
+<% content_for :head  do %>
+  <%= stylesheet_link_tag "plupload/upload", :cache => true %>
+<% end %>
+
+<% content_for :tail  do %>
+  <%= javascript_include_tag "plupload/upload", :cache => true %>
+  <script type="text/javascript">
+    $(function(){
+      var uploader = $("#uploader").plupload({
+        runtimes: 'html5,flash,silverlight,html4',
+        max_file_size : '5mb',
+        filters: [
+          { title: "图片文件", extensions: "jpg, gif, png, jpeg" },
+        ],
+        dragdrop: true,
+        rename: true,
+        sortable: true,
+        views: {
+            list: true,
+            thumbs: true, // Show thumbs
+            active: 'thumbs'
+        },
+        file_data_name: 'photo[file]',
+        flash_swf_url : '<%= asset_path "plupload/Moxie.swf"%>',
+     
+        // Silverlight settings
+        silverlight_xap_url : '<%= asset_path "plupload/Moxie.xap"%>',
+        url: '<%= admin_marriage_photos_path(@marriage) %>',
+        multipart_params: {
+          '<%= request_forgery_protection_token %>': '<%= form_authenticity_token %>',
+          '<%= Rails.application.config.session_options[:key] %>': '<%= request.session_options[:id] %>'
+        }
+      });
+
+      uploader.bind('complete', function() {
+         $(".plupload_done.ui-state-default.plupload_file").remove();
+         $.get('<%= admin_marriage_photos_path(@marriage, :format => :js) %>');
+         
+      });
+    });
+
+
+  </script>
+<% end %>
+
+封面照片：
+<div class="row" id="marriage_cover">
+  <%= render :partial=> "cover", :locals => {:cover => @cover} %>
+<hr/>
+
+
+照片列表
+<div class="row" id="photo_list">
+  <%= render :partial=> "photos", :locals => {:photos => @photos} %>
+</div>
+
+<div id="uploader">
+    <p>您的浏览器不支持flash, Silerlight或者HTML5，建议您升级浏览器或使用google浏览器。</p>
+</div>
+
+<%= link_to "返回婚礼列表", admin_marriages_path %>

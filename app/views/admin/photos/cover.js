@@ -1,0 +1,1 @@
+$("#marriage_cover").html('<%=escape_javascript render :partial=> "cover", :locals => {:cover => @cover} %>');

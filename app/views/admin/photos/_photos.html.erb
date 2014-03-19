@@ -1,0 +1,8 @@
+  <% @photos.each do |photo| %>
+    <div class="col-xs-6 col-md-3">
+      <%= image_tag(photo.file(:thumb), :class => "img-rounded") %>
+      <p><%= link_to "删除", admin_marriage_photo_path(@marriage, photo), :method => :delete, :data => {:confirm => '确定删除?'} %> |
+              <%= link_to "设为封面", cover_admin_marriage_photo_path(@marriage, photo), :method => :post, :remote => true %>
+      </p>
+    </div>
+  <% end %>

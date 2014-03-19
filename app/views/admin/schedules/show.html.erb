@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>时间:</b>
+  <%= format_time(resource.date) %>
+</p>
+
+<p>
+  <b>地点:</b>
+  <%= resource.location %>
+</p>
+<p>
+  <b>备注:</b>
+  <%= resource.desc %>
+</p>
+
+<%= link_to '编辑', edit_admin_marriage_schedule_path(parent, resource) %> |
+<%= link_to '返回列表', admin_marriage_schedules_path(parent) %>

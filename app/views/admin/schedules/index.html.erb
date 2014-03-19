@@ -1,0 +1,26 @@
+<h1>日程列表</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>时间</th>
+      <th>地点</th>
+      <th>备注</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collection.each do |s| %>
+      <tr>
+        <td><%= format_time(s.date) %></td>
+        <td><%= s.location %></td>
+        <td><%= s.desc %></td>
+        <td>
+          <%= link_to '编辑', edit_admin_marriage_schedule_path(parent, s), :class => 'btn btn-mini' %>
+          <%= link_to '删除', admin_marriage_schedule_path(parent, s), :method => :delete, :confirm => '确定删除?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新建', new_admin_marriage_schedule_path(parent), :class => 'btn btn-primary' %>

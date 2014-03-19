@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>新郎:</b>
+  <%= @marriage.m_name %>
+</p>
+
+<p>
+  <b>新娘:</b>
+  <%= @marriage.f_name %>
+</p>
+
+<p>
+  <b>结婚照片:</b>
+  <%=link_to @marriage.photos.length, admin_marriage_photos_path(@marriage) %>
+</p>
+
+
+<p>
+  <b>日程安排:</b>
+  <%=link_to @marriage.photos.length, admin_marriage_photos_path(@marriage) %>
+</p>
+
+<p>
+  <b>手机访问地址:</b>
+  <%=link_to mobile_marriage_url(@marriage), mobile_marriage_url(@marriage) %>
+</p>
+
+
+<p>
+  <b>二维码:</b>
+  <%=link_to image_tag("http://qr.liantu.com/api.php?text=#{mobile_marriage_url(@marriage)}") %>
+</p>
+
+<%= link_to '编辑', edit_admin_marriage_path(@marriage) %> |
+<%= link_to '返回列表', admin_marriages_path %>

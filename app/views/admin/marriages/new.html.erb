@@ -1,0 +1,5 @@
+<%= form_for(@marriage, :url => admin_marriages_path, :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+<% end %>
+
+<%= link_to '返回列表', admin_marriages_path %>

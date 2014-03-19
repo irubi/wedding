@@ -1,0 +1,23 @@
+
+#menu{
+  background-color: #f25282;
+}
+
+#gallery{
+  background-color: #000;
+}
+
+#menu .ui-btn{
+  background: none;
+  color: #fff;
+  border: none;
+  text-shadow: none; 
+}
+
+.ui-content{
+  vertical-align: middle;
+}
+[data-role=page]{height: 100% !important; position:relative !important;}
+
+/*闪屏*/
+.ui-page {backface- visibility : hidden ;-webkit-backface-visibility : hidden ; /* Chrome and Safari */-moz-backface-visibility : hidden ; /* Firefox */}
