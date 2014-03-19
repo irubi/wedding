@@ -26,14 +26,14 @@ class Marriage < ActiveRecord::Base
 
 
   def cover
-    begin
-      if self.cover_id.nil?
-        self.photos.first
-      else
+    if self.cover_id.nil?
+      self.photos.first
+    else
+      begin
         self.photos.find(self.cover_id)  || self.photos.first
+      rescue
+        nil
       end
-    rescue
-      nil
     end
   end
 end

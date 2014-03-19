@@ -15,7 +15,7 @@ gem 'jquery_mobile_rails'
 gem 'devise'
 gem 'paperclip'
 gem 'inherited_resources'
-# gem "paperclip_oss_storage", "~> 0.0.5"
+gem "paperclip_oss_storage", "~> 0.0.5"
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'plupload-rails'
 gem 'jquery-ui-rails'

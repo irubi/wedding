@@ -35,10 +35,10 @@ class Admin::PhotosController < Admin::BaseController
   end
 
   def set_cover
-    @cover = @marriage.cover
+    @cover = @marriage.cover    
   end
 
   def set_marrage
-    @marriage = Marriage.find_with_number(params[:marriage_id])
+    @marriage = Marriage.find_with_number(params[:marriage_id]).first
   end
 end

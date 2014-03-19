@@ -16,7 +16,7 @@
         <td><%=link_to m.number, admin_marriage_path(m) %></td>
         <td><%= m.m_name %></td>
         <td><%= m.f_name %></td>
-        <td><%=link_to m.photos.length, admin_marriage_photos_path(m) %></td>
+        <td><%= link_to m.photos.length, admin_marriage_photos_path(m) %></td>
         <td><%= link_to m.schedules.length, admin_marriage_schedules_path(m) %></td>
 
         <td>
