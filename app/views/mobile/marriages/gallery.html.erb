@@ -1,11 +1,3 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag 'photoswipe/photoswipe', :cache => true %>
-<% end %>
-
-<% content_for :tail do %>
-  <%= javascript_include_tag "photoswipe/photoswipe", :cache => true %>
-<% end %>
-
 <div data-role="page" id="gallery" data-dom-cache="true">
   <div role="main" class="ui-content">
     <% @photos.each_slice(4).each do |slice| %>

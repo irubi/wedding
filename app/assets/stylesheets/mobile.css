@@ -2,4 +2,5 @@
  *= require_self
  *= require jquery.mobile
  *= require style
+ *= require photoswipe/photoswipe
  */
