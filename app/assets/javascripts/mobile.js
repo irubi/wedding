@@ -21,6 +21,10 @@ function prefetch(){
   });
 }
 
+$("#index").bind("pageload", function(){
+  $("#index").show();
+});
+
 $("#index").bind ("pagecreate", function (){
   prefetch();
 });
