@@ -8,6 +8,6 @@ class Admin::SchedulesController < Admin::BaseController
   end
   
   def set_marrage
-    @marriage = Marriage.find_with_number(params[:marriage_id])
+    @marriage = Marriage.find_with_number(params[:marriage_id]).first
   end
 end
