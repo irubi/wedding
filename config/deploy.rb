@@ -8,13 +8,13 @@ set :default_environment, {
 set :rvm_type, :system
 
 require 'bundler/capistrano'
-require "whenever/capistrano"
+
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 set :application, "wedding"
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
-set :repository, "git@aimody.com:wedding.git"  # Your clone URL
+set :repository, "git@github.com:irubi/wedding.git"  # Your clone URL
 set :branch, "master"
 set :scm, "git"
 set :user, "root"  # The server's user for deploys
