@@ -1,4 +1,9 @@
-<%= render "index" %>
-<%= render "menu" %>
-<%= render "gallery" %>
-<%= render "schedule" %>
+<div data-role="page" id="index" style="background: #000000 url(<%= (@marriage.cover.file(:cover)) %>);background-repeat: no-repeat;background-position:center center;background-attachment:scroll;border-color: #fff;color: #fff;text-shadow: none;background-size: auto 100%;" data-dom-cache="true">
+  <div role="main" class="ui-content" id="index-content">
+  </div>
+  <div data-role="footer" class="ui-bar" data-tap-toggle="false" style="background:#000;text-shadow:none;top: auto !important; width:100%;position:absolute !important;bottom:0;height:auto;text-align: center;opacity: 0.5;border: none;vertical-align:middle;" >
+    <p>
+      <a href="<%= menu_mobile_marriage_path(@marriage) %>" style="color:#ffffff;text-decoration: none;" class="ui-link"><%=  "#{@marriage.m_name} 和 #{@marriage.f_name} 的婚礼"%></a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div data-role="page" id="schedule" data-dom-cache="true">
+  <div data-role="header">
+    <h1>婚礼日程安排</h1>
+  </div>
+  <div role="main" class="ui-content">
+    <% @schedules.each do |s| %>
+      <div data-role="collapsible" data-content-theme="a" data-iconpos="right" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+         <h3><%= cn_time(s.date) %></h3>
+         <p><%= image_tag "location_icon.png" %>&nbsp;&nbsp;<%= s.location %></p>
+         <p><%= image_tag "memo_icon.png" %>&nbsp;&nbsp;<%= s.desc %></p>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+

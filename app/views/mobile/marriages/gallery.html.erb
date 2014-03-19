@@ -1,0 +1,21 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'photoswipe/photoswipe', :cache => true %>
+<% end %>
+
+<% content_for :tail do %>
+  <%= javascript_include_tag "photoswipe/photoswipe", :cache => true %>
+<% end %>
+
+<div data-role="page" id="gallery" data-dom-cache="true">
+  <div role="main" class="ui-content">
+    <% @photos.each_slice(4).each do |slice| %>
+      <div class="ui-grid-c">
+          <% slice.each_with_index do |photo, index| %>
+            <div class= 'ui-block-<%= number_to_alph(index) %>'>
+                <%= link_to image_tag(photo.file(:thumb), :size => '60x60'), photo.file(:original), :class => "swipebox", :rel => "gallery-1" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+</div>
